@@ -12,25 +12,26 @@ func main() {
 		fmt.Println(fmt.Sprintf("Число не прочитано %s", err))
 
 	}
-	// fmt.Println(oprnd1)
+	// fmt.Println(oprnd1) - убрал для визуального удобства в терминале вывода инфы.
 
 	fmt.Print("укажите операцию: (+,-,*,/) ")
 	_, err = fmt.Scanln(&operator)
-	if err != nil { // не знаю как реализовать проверку на корректный ввод операции
+	if err != nil { // не знаю как реализовать проверку на корректный ввод операции. Через break
+		// или по-другому условие прописать надо.
 		fmt.Println(fmt.Sprintf("некорректный формат %s", err))
 		if operator != "+, -, *, /" {
 			fmt.Println("oshibka")
 		}
 	}
 
-	// fmt.Println(operator)
+	// fmt.Println(operator)- убрал для визуального удобства в терминале вывода инфы.
 
 	fmt.Print("введите второе число: ")
 	_, err = fmt.Scanln(&oprnd2)
 	if err != nil {
 		fmt.Println(fmt.Sprintf("Число не прочитано %s", err))
 	}
-	// fmt.Println(oprnd2)
+	// fmt.Println(oprnd2)- убрал для визуального удобства в терминале вывода инфы.
 
 	switch operator {
 	case "+":
