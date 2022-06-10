@@ -1,9 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"github.com/helloujin/go_mod_6/calc"
+
+	"fmt"
+)
 
 func main() {
-	var oprnd1, oprnd2, result float32
+	var oprnd1, oprnd2, result float64
 	var operator string
 
 	fmt.Print("введите первое число: ")
@@ -33,30 +37,8 @@ func main() {
 	}
 	// fmt.Println(oprnd2)- убрал для визуального удобства в терминале вывода инфы.
 
-	switch operator {
-	case "+":
-		result = oprnd1 + oprnd2
-		fmt.Println("Результат суммы: ", result)
+	calculator := calc.NewCalculator()
+	result = calculator.Calculate(oprnd1, oprnd2, operator)
 
-	case "-":
-		result = oprnd1 - oprnd2
-		fmt.Println("Результат разности: ", result)
-
-	case "*":
-		result = oprnd1 * oprnd2
-		fmt.Println("Результат умножения: ", result)
-
-	case "/":
-		if oprnd2 == 0 { // проверим делимое на условие не равности нулю
-			fmt.Println("Не делим на ноль")
-		} else {
-			result = oprnd1 / oprnd2
-			fmt.Println("Результат частного: ", result)
-		}
-
-	default:
-		fmt.Println("Не указана запрашиваемая операция")
-
-	}
-
+	fmt.Println(result)
 }
