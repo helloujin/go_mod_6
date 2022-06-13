@@ -13,6 +13,7 @@ func main() {
 	fmt.Print("введите первое число: ")
 	_, err := fmt.Scanln(&oprnd1)
 	if err != nil {
+
 		fmt.Println(fmt.Sprintf("Число не прочитано %s", err))
 
 	}
@@ -20,12 +21,9 @@ func main() {
 
 	fmt.Print("укажите операцию: (+,-,*,/) ")
 	_, err = fmt.Scanln(&operator)
-	if err != nil { // не знаю как реализовать проверку на корректный ввод операции. Через break
-		// или по-другому условие прописать надо.
+	if err != nil {
 		fmt.Println(fmt.Sprintf("некорректный формат %s", err))
-		if operator != "+, -, *, /" {
-			fmt.Println("oshibka")
-		}
+
 	}
 
 	// fmt.Println(operator)- убрал для визуального удобства в терминале вывода инфы.
@@ -40,5 +38,5 @@ func main() {
 	calculator := calc.NewCalculator()
 	result = calculator.Calculate(oprnd1, oprnd2, operator)
 
-	fmt.Println(result)
+	fmt.Println("Полученный результат:", result)
 }
